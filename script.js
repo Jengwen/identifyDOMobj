@@ -108,14 +108,20 @@ const students = [
     }
 ]
 
+// write general element function
+const element= (elementType, elementContent, classValue ) =>{
+return `<${elementType} class= "${classValue}">${elementContent}</${elementType}>`
+}
+
+
 // copy createSTudentComponent function
 
-const createStudentComponent = (students, className) => {
+const createStudentComponent = (students) => {
     return `
         <div class="student">
-            <h1 class= ${className}>${students.name}</h1>
-            <section>${students.subject}</section>
-            <aside>${students.info}</aside>
+            ${element ("h1",students.name, "xx-large passing")}
+            ${element ("section",students.subject,"bordered dashed section--padded")}
+            ${element ("aside",students.info, "pushRight" )}
         </div>
     `
 }
@@ -137,4 +143,18 @@ const container = document.querySelector("#container")
 
 }
 
+// challenge create generic HTML function
 
+// Create one function that will generate any HTML component, with any content. It should be defined with three arguments.
+
+// The type of HTML component to make
+// The content of the component
+// The value of the class attribute
+
+// const createStudentComponent = (student) => `
+//     <div id="student">
+//         ${element("h1", student.name, "xx-large passing")}
+//         ${element("section", student.subject, "bordered dashed section--padded")}
+//         ${element("aside", student.info, "pushRight")}
+//     </div>
+// `
